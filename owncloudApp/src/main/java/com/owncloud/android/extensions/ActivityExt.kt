@@ -304,32 +304,34 @@ fun Activity.showBiometricDialog(iEnableBiometrics: IEnableBiometrics) {
         }
     }.show()
 
-    fun Activity.checkPasscodeDelayEnforced() {
-        val sharedPreferencesProvider = SharedPreferencesProviderImpl(this)
+}
 
-        val lockEnforcedDelay = this.resources.getInteger(R.integer.lock_delay_enforced)
-        val passcodeConfigured = sharedPreferencesProvider.getBoolean(PassCodeActivity.PREFERENCE_SET_PASSCODE, false)
-        val patternConfigured = sharedPreferencesProvider.getBoolean(PatternActivity.PREFERENCE_SET_PATTERN, false)
+fun Activity.checkPasscodeDelayEnforced() {
+    val sharedPreferencesProvider = SharedPreferencesProviderImpl(this)
 
-        if (lockEnforcedDelay > LockTimeout.DISABLED.ordinal && (passcodeConfigured || patternConfigured)) {
-            when (lockEnforcedDelay) {
-                LockTimeout.IMMEDIATELY.ordinal -> {
-                    sharedPreferencesProvider.putString(PREFERENCE_LOCK_TIMEOUT, LockTimeout.IMMEDIATELY.name)
-                }
-                LockTimeout.ONE_MINUTE.ordinal -> {
-                    sharedPreferencesProvider.putString(PREFERENCE_LOCK_TIMEOUT, LockTimeout.ONE_MINUTE.name)
-                }
-                LockTimeout.FIVE_MINUTES.ordinal -> {
-                    sharedPreferencesProvider.putString(PREFERENCE_LOCK_TIMEOUT, LockTimeout.FIVE_MINUTES.name)
-                }
-                LockTimeout.THIRTY_MINUTES.ordinal -> {
-                    sharedPreferencesProvider.putString(PREFERENCE_LOCK_TIMEOUT, LockTimeout.THIRTY_MINUTES.name)
-                }
+    val lockEnforcedDelay = this.resources.getInteger(R.integer.lock_delay_enforced)
+    val passcodeConfigured = sharedPreferencesProvider.getBoolean(PassCodeActivity.PREFERENCE_SET_PASSCODE, false)
+    val patternConfigured = sharedPreferencesProvider.getBoolean(PatternActivity.PREFERENCE_SET_PATTERN, false)
+
+    if (lockEnforcedDelay > LockTimeout.DISABLED.ordinal && (passcodeConfigured || patternConfigured)) {
+        when (lockEnforcedDelay) {
+            LockTimeout.IMMEDIATELY.ordinal -> {
+                sharedPreferencesProvider.putString(PREFERENCE_LOCK_TIMEOUT, LockTimeout.IMMEDIATELY.name)
             }
-            sharedPreferencesProvider.putBoolean(ENFORCED_LOCK_DELAY, true)
-        } else {
-            sharedPreferencesProvider.putBoolean(ENFORCED_LOCK_DELAY, false)
+            LockTimeout.ONE_MINUTE.ordinal -> {
+                sharedPreferencesProvider.putString(PREFERENCE_LOCK_TIMEOUT, LockTimeout.ONE_MINUTE.name)
+            }
+            LockTimeout.FIVE_MINUTES.ordinal -> {
+                sharedPreferencesProvider.putString(PREFERENCE_LOCK_TIMEOUT, LockTimeout.FIVE_MINUTES.name)
+            }
+            LockTimeout.THIRTY_MINUTES.ordinal -> {
+                sharedPreferencesProvider.putString(PREFERENCE_LOCK_TIMEOUT, LockTimeout.THIRTY_MINUTES.name)
+            }
         }
+        sharedPreferencesProvider.putBoolean(ENFORCED_LOCK_DELAY, true)
+    } else {
+        sharedPreferencesProvider.putBoolean(ENFORCED_LOCK_DELAY, false)
     }
 }
+
 
