@@ -27,6 +27,7 @@ import com.owncloud.android.presentation.ui.security.BiometricActivity
 import com.owncloud.android.presentation.ui.security.PassCodeActivity
 import com.owncloud.android.presentation.ui.security.PatternActivity
 import com.owncloud.android.presentation.ui.settings.fragments.SettingsSecurityFragment
+import com.owncloud.android.presentation.ui.settings.fragments.SettingsSecurityFragment.Companion.ENFORCED_LOCK_DELAY
 import com.owncloud.android.providers.ContextProvider
 
 class SettingsSecurityViewModel(
@@ -47,4 +48,6 @@ class SettingsSecurityViewModel(
     fun isSecurityEnforcedEnabled() = contextProvider.getBoolean(R.bool.lock_enforced)
 
     fun getBiometricsState(): Boolean = preferencesProvider.getBoolean(BiometricActivity.PREFERENCE_SET_BIOMETRIC, false)
+
+    fun isSecurityEnforcedDelayEnabled() = preferencesProvider.getBoolean(ENFORCED_LOCK_DELAY, false)
 }
