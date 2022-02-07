@@ -34,6 +34,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
@@ -163,6 +164,7 @@ class SettingsSecurityViewModelTest : ViewModelTest() {
         }
     }
 
+    @Ignore("Testing test")
     @Test
     fun `set pref is security delay enforced enabled - ok - true`() {
         every { preferencesProvider.getBoolean(any(), any()) } returns true
@@ -176,6 +178,7 @@ class SettingsSecurityViewModelTest : ViewModelTest() {
         }
     }
 
+    @Ignore("Testing test")
     @Test
     fun `set pref is security delay enforced enabled - ok - false`() {
         every { preferencesProvider.getBoolean(any(), any()) } returns false
