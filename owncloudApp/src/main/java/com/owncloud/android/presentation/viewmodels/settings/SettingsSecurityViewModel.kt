@@ -24,10 +24,10 @@ import androidx.lifecycle.ViewModel
 import com.owncloud.android.R
 import com.owncloud.android.data.preferences.datasources.SharedPreferencesProvider
 import com.owncloud.android.presentation.ui.security.BiometricActivity
+import com.owncloud.android.presentation.ui.security.LockTimeout
 import com.owncloud.android.presentation.ui.security.PassCodeActivity
 import com.owncloud.android.presentation.ui.security.PatternActivity
 import com.owncloud.android.presentation.ui.settings.fragments.SettingsSecurityFragment
-import com.owncloud.android.presentation.ui.settings.fragments.SettingsSecurityFragment.Companion.ENFORCED_LOCK_DELAY
 import com.owncloud.android.providers.ContextProvider
 
 class SettingsSecurityViewModel(
@@ -49,5 +49,5 @@ class SettingsSecurityViewModel(
 
     fun getBiometricsState(): Boolean = preferencesProvider.getBoolean(BiometricActivity.PREFERENCE_SET_BIOMETRIC, false)
 
-    fun isSecurityEnforcedDelayEnabled() = preferencesProvider.getBoolean(ENFORCED_LOCK_DELAY, false)
+    fun isLockDelayEnabled() = LockTimeout.parseFromInteger(contextProvider.getInt(R.integer.lock_delay_enforced)) != LockTimeout.DISABLED
 }
