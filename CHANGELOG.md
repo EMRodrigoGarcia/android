@@ -1,3 +1,26 @@
+Changelog for ownCloud Android Client [unreleased] (UNRELEASED)
+=======================================
+The following sections list the changes in ownCloud Android Client unreleased relevant to
+ownCloud admins and users.
+
+[unreleased]: https://github.com/owncloud/android/compare/v2.20.0...master
+
+Summary
+-------
+
+* Enhancement - Lock delay enforced: [#3440](https://github.com/owncloud/android/issues/3440)
+
+Details
+-------
+
+* Enhancement - Lock delay enforced: [#3440](https://github.com/owncloud/android/issues/3440)
+
+   A new branding/MDM option has been added for the application to lock after the selected
+   interval
+
+   https://github.com/owncloud/android/issues/3440
+   https://github.com/owncloud/android/pull/3547
+
 Changelog for ownCloud Android Client [2.20.0] (2022-02-16)
 =======================================
 The following sections list the changes in ownCloud Android Client 2.20.0 relevant to
@@ -14,7 +37,6 @@ Summary
 * Enhancement - Lock delay for app: [#3344](https://github.com/owncloud/android/issues/3344)
 * Enhancement - Security enforced: [#3434](https://github.com/owncloud/android/pull/3434)
 * Enhancement - Respect capability for Avatar support: [#3438](https://github.com/owncloud/android/pull/3438)
-* Enhancement - Lock delay enforced: [#3440](https://github.com/owncloud/android/issues/3440)
 * Enhancement - Brute force protection: [#3320](https://github.com/owncloud/android/issues/3320)
 * Enhancement - "Open with" action now allows editing: [#3475](https://github.com/owncloud/android/issues/3475)
 * Enhancement - Enable logs by default in debug mode: [#3526](https://github.com/owncloud/android/issues/3526)
@@ -71,14 +93,6 @@ Details
 
    https://github.com/owncloud/android/issues/3285
    https://github.com/owncloud/android/pull/3438
-
-* Enhancement - Lock delay enforced: [#3440](https://github.com/owncloud/android/issues/3440)
-
-   A new branding/MDM option has been added for the application to lock after the selected
-   interval
-
-   https://github.com/owncloud/android/issues/3440
-   https://github.com/owncloud/android/pull/3547
 
 * Enhancement - Brute force protection: [#3320](https://github.com/owncloud/android/issues/3320)
 
