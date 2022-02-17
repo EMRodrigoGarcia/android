@@ -43,8 +43,6 @@ import com.owncloud.android.interfaces.IEnableBiometrics
 import com.owncloud.android.interfaces.ISecurityEnforced
 import com.owncloud.android.interfaces.LockType
 import com.owncloud.android.lib.common.network.WebdavUtils
-import com.owncloud.android.presentation.ui.security.LockTimeout
-import com.owncloud.android.presentation.ui.security.PREFERENCE_LOCK_TIMEOUT
 import com.owncloud.android.presentation.ui.security.PassCodeActivity
 import com.owncloud.android.presentation.ui.security.PatternActivity
 import com.owncloud.android.presentation.ui.settings.fragments.SettingsSecurityFragment.Companion.EXTRAS_LOCK_ENFORCED
@@ -261,18 +259,18 @@ fun Activity.checkPasscodeEnforced(securityEnforced: ISecurityEnforced) {
         val options = arrayOf(getString(R.string.security_enforced_first_option), getString(R.string.security_enforced_second_option))
         var optionSelected = 0
 
-        AlertDialog.Builder(this).apply {
-            setCancelable(false)
-            setTitle(getString(R.string.security_enforced_title))
-            setSingleChoiceItems(options, optionSelected) { _, which -> optionSelected = which }
-            setPositiveButton(android.R.string.ok) { dialog, _ ->
+        AlertDialog.Builder(this)
+            .setCancelable(false)
+            .setTitle(getString(R.string.security_enforced_title))
+            .setSingleChoiceItems(options, optionSelected) { _, which -> optionSelected = which }
+            .setPositiveButton(android.R.string.ok) { dialog, _ ->
                 when (optionSelected) {
                     0 -> securityEnforced.optionLockSelected(LockType.PASSCODE)
                     1 -> securityEnforced.optionLockSelected(LockType.PATTERN)
                 }
                 dialog.dismiss()
             }
-        }.show()
+            .show()
     }
 }
 
@@ -290,18 +288,18 @@ fun Activity.manageOptionLockSelected(type: LockType) {
 }
 
 fun Activity.showBiometricDialog(iEnableBiometrics: IEnableBiometrics) {
-    AlertDialog.Builder(this).apply {
-        setCancelable(false)
-        setTitle(getString(R.string.biometric_dialog_title))
-        setPositiveButton(R.string.common_yes) { dialog, _ ->
+    AlertDialog.Builder(this)
+        .setCancelable(false)
+        .setTitle(getString(R.string.biometric_dialog_title))
+        .setPositiveButton(R.string.common_yes) { dialog, _ ->
             iEnableBiometrics.onOptionSelected(BiometricStatus.ENABLED_BY_USER)
             dialog.dismiss()
         }
-        setNegativeButton(R.string.common_no) { dialog, _ ->
+        .setNegativeButton(R.string.common_no) { dialog, _ ->
             iEnableBiometrics.onOptionSelected(BiometricStatus.DISABLED_BY_USER)
             dialog.dismiss()
         }
-    }.show()
+        .show()
 }
 
 
