@@ -15,7 +15,7 @@ Details
 
 * Enhancement - Lock delay enforced: [#3440](https://github.com/owncloud/android/issues/3440)
 
-   A new branding/MDM option has been added for the application to lock after the selected
+   A new local setup's option has been added for the application to lock after the selected
    interval
 
    https://github.com/owncloud/android/issues/3440
