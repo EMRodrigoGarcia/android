@@ -1,3 +1,27 @@
+Changelog for ownCloud Android Client [unreleased] (UNRELEASED)
+=======================================
+The following sections list the changes in ownCloud Android Client unreleased relevant to
+ownCloud admins and users.
+
+[unreleased]: https://github.com/owncloud/android/compare/v2.20.0...master
+
+Summary
+-------
+
+* Bugfix - Security flags for recording screen: [#3468](https://github.com/owncloud/android/issues/3468)
+
+Details
+-------
+
+* Bugfix - Security flags for recording screen: [#3468](https://github.com/owncloud/android/issues/3468)
+
+   Previously, if passcode or pattern were enabled, no screen from the app could be viewed from a
+   recording screen app. Now, only the login, passcode and pattern screens are protected against
+   recording.
+
+   https://github.com/owncloud/android/issues/3468
+   https://github.com/owncloud/android/pull/3560
+
 Changelog for ownCloud Android Client [2.20.0] (2022-02-16)
 =======================================
 The following sections list the changes in ownCloud Android Client 2.20.0 relevant to
