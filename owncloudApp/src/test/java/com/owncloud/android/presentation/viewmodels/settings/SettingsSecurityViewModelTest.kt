@@ -138,7 +138,7 @@ class SettingsSecurityViewModelTest : ViewModelTest() {
     }
 
     @Test
-    fun `set pref is security enforced enabled - ok - true`() {
+    fun `is security enforced enabled - ok - true`() {
         every { contextProvider.getBoolean(any()) } returns true
 
         securityViewModel.isSecurityEnforcedEnabled().apply {
@@ -151,7 +151,7 @@ class SettingsSecurityViewModelTest : ViewModelTest() {
     }
 
     @Test
-    fun `set pref is security enforced enabled - ok - false`() {
+    fun `is security enforced enabled - ok - false`() {
         every { contextProvider.getBoolean(any()) } returns false
 
         securityViewModel.isSecurityEnforcedEnabled().apply {
