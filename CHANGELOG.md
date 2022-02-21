@@ -15,6 +15,7 @@ Summary
 * Enhancement - Security enforced: [#3434](https://github.com/owncloud/android/pull/3434)
 * Enhancement - Respect capability for Avatar support: [#3438](https://github.com/owncloud/android/pull/3438)
 * Enhancement - Brute force protection: [#3320](https://github.com/owncloud/android/issues/3320)
+* Enhancement - Provide app feedback to MDM admins: [#3420](https://github.com/owncloud/android/issues/3420)
 * Enhancement - "Open with" action now allows editing: [#3475](https://github.com/owncloud/android/issues/3475)
 
 Details
@@ -80,6 +81,14 @@ Details
 
    https://github.com/owncloud/android/issues/3320
    https://github.com/owncloud/android/pull/3463
+
+* Enhancement - Provide app feedback to MDM admins: [#3420](https://github.com/owncloud/android/issues/3420)
+
+   Now, when a MDM configuration is applied for the first time or changed by an IT administrator,
+   the app sends feedback that will be shown in the EMM console.
+
+   https://github.com/owncloud/android/issues/3420
+   https://github.com/owncloud/android/pull/3480
 
 * Enhancement - "Open with" action now allows editing: [#3475](https://github.com/owncloud/android/issues/3475)
 

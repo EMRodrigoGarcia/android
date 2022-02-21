@@ -25,8 +25,11 @@ import android.content.Intent
 import android.content.RestrictionsManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.enterprise.feedback.KeyedAppState
+import androidx.enterprise.feedback.KeyedAppStatesReporter
 import com.owncloud.android.BuildConfig
 import com.owncloud.android.MainApp
+import com.owncloud.android.R
 import com.owncloud.android.data.preferences.datasources.implementation.SharedPreferencesProviderImpl
 import com.owncloud.android.utils.CONFIGURATION_SERVER_URL
 import com.owncloud.android.utils.CONFIGURATION_SERVER_URL_INPUT_VISIBILITY
@@ -52,13 +55,51 @@ class SplashActivity : AppCompatActivity() {
 
     private fun cacheRestrictions(restrictions: Bundle) {
         val preferencesProvider = SharedPreferencesProviderImpl(this)
+        val reporter = KeyedAppStatesReporter.create(this)
         if (restrictions.containsKey(CONFIGURATION_SERVER_URL)) {
             val confServerUrl = restrictions.getString(CONFIGURATION_SERVER_URL)
+            val isConfServerUrlCached = preferencesProvider.contains(CONFIGURATION_SERVER_URL)
+            val oldConfServerUrl = preferencesProvider.getString(CONFIGURATION_SERVER_URL, null)
             confServerUrl?.let { preferencesProvider.putString(CONFIGURATION_SERVER_URL, it) }
+            if (!isConfServerUrlCached || !confServerUrl.equals(oldConfServerUrl)) {
+                sendFeedback(
+                    reporter = reporter,
+                    key = CONFIGURATION_SERVER_URL,
+                    message = getString(R.string.server_url_configuration_feedback_ok)
+                )
+            }
         }
         if (restrictions.containsKey(CONFIGURATION_SERVER_URL_INPUT_VISIBILITY)) {
             val confServerUrlInputVisibility = restrictions.getBoolean(CONFIGURATION_SERVER_URL_INPUT_VISIBILITY)
+            val isConfServerUrlInputVisibilityCached = preferencesProvider.contains(CONFIGURATION_SERVER_URL_INPUT_VISIBILITY)
+            val oldConfServerUrlInputVisibility = preferencesProvider.getBoolean(CONFIGURATION_SERVER_URL_INPUT_VISIBILITY, false)
             preferencesProvider.putBoolean(CONFIGURATION_SERVER_URL_INPUT_VISIBILITY, confServerUrlInputVisibility)
+            if (!isConfServerUrlInputVisibilityCached || (confServerUrlInputVisibility != oldConfServerUrlInputVisibility)) {
+                sendFeedback(
+                    reporter = reporter,
+                    key = CONFIGURATION_SERVER_URL_INPUT_VISIBILITY,
+                    message = getString(R.string.server_url_input_visibility_configuration_feedback_ok)
+                )
+            }
         }
+    }
+
+    private fun sendFeedback(
+        reporter: KeyedAppStatesReporter,
+        key: String,
+        isError: Boolean = false,
+        message: String,
+        data: String? = null
+    ) {
+        val severity = if (isError) KeyedAppState.SEVERITY_ERROR else KeyedAppState.SEVERITY_INFO
+        val states = hashSetOf(
+            KeyedAppState.builder()
+                .setKey(key)
+                .setSeverity(severity)
+                .setMessage(message)
+                .setData(data)
+                .build()
+        )
+        reporter.setStates(states, null)
     }
 }
