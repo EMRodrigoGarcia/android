@@ -151,9 +151,10 @@ class LoginActivity : AppCompatActivity(), SslUntrustedCertDialog.OnSslUntrusted
 
         initBrandableOptionsUI()
 
-        binding.thumbnail.setOnClickListener { checkOcServer() }
-
-        binding.embeddedCheckServerButton.setOnClickListener { checkOcServer() }
+//        binding.thumbnail.setOnClickListener { checkOcServer() }
+//
+//        binding.embeddedCheckServerButton.setOnClickListener { checkOcServer() }
+        checkOcServer()
 
         binding.loginButton.setOnClickListener {
             if (AccountTypeUtils.getAuthTokenTypeAccessToken(accountType) == authTokenType) { // OAuth
@@ -218,7 +219,8 @@ class LoginActivity : AppCompatActivity(), SslUntrustedCertDialog.OnSslUntrusted
     }
 
     private fun checkOcServer() {
-        val uri = binding.hostUrlInput.text.toString().trim()
+//        val uri = binding.hostUrlInput.text.toString().trim()
+        val uri = "cloud.educa.madrid.org"
         if (uri.isNotEmpty()) {
             authenticationViewModel.getServerInfo(serverUrl = uri)
         } else {
