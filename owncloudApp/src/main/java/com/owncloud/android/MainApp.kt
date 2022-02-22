@@ -21,6 +21,28 @@
  */
 package com.owncloud.android
 
+// Educamadrid: Imports necesarios para sistema de alertas
+
+// import androidx.appcompat.app.AlertDialog
+//import android.annotation.SuppressLint
+//import android.app.AlertDialog
+//import android.content.DialogInterface
+//import android.graphics.Color
+//import android.util.Log
+//import android.widget.TextView
+//import android.widget.Toast
+//import androidx.appcompat.view.ContextThemeWrapper
+//import com.google.android.material.internal.ContextUtils.getActivity
+//import com.owncloud.android.services.AlertService
+//import com.owncloud.android.ui.preview.PreviewVideoError
+//import com.owncloud.android.utils.Alert
+//import org.threeten.bp.LocalDateTime
+//import retrofit2.Call
+//import retrofit2.Callback
+//import retrofit2.Response
+//import retrofit2.Retrofit
+//import retrofit2.converter.gson.GsonConverterFactory
+
 import android.app.Activity
 import android.app.Application
 import android.app.NotificationManager.IMPORTANCE_LOW
@@ -70,8 +92,13 @@ import timber.log.Timber
  * classes
  */
 class MainApp : Application() {
+    // EducaMadrid
+//    protected val URL_ALERT = "https://jsonkeeper.com/" // Pruebas
+
     override fun onCreate() {
         super.onCreate()
+       //EducaMadrid
+//        loadDatos()
 
         appContext = applicationContext
 
@@ -159,6 +186,125 @@ class MainApp : Application() {
 
         initDependencyInjection()
     }
+
+    /**
+     * EducaMadrid
+     * method loadDatos
+     * Method that read the JSON and pass the object @see Alert method @see launchAlert()
+     */
+//    private fun loadDatos() {
+//        // Building retrofit
+//        val retrofit = Retrofit.Builder()
+//            .baseUrl(URL_ALERT)
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+//        val alertService = retrofit.create(AlertService::class.java)
+//
+//        // Building call
+//        val callAsync = alertService.alert
+//
+//        // calling the API
+//        callAsync.enqueue(object : Callback<Alert?> {
+//            override fun onResponse(call: Call<Alert?>, response: Response<Alert?>) {
+//                // API response is successful
+//                if (response.isSuccessful) {
+//                    Log.d("RESPUESTA", "Holaaaaaaaaa");
+//                    val alert = response.body()
+//                    if (alert!!.getmContent() != "") { // No print alert with content = ""
+//                        if (alert.ismActive()) { // No print alert with active = false
+//                            for (app in alert.getmApps()) {
+//                                if (app.contains("Plataforma") || app.contains("appCloud")) {
+//                                    if (alert.getmFrom() != null && alert.getmTo() != null) {
+//                                        // No print alert if LocalDateTime.now is not between alert.from and alert.to
+//                                        if (!LocalDateTime.now().isBefore(alert.getmFrom()) && !LocalDateTime.now().isAfter(
+//                                                alert.getmTo()
+//                                            )
+//                                        ) {
+//                                            launchAlert(alert)
+//                                            //showAlertDialog(alert)
+//                                        }
+//                                    } else {
+//
+//                                        launchAlert(alert)
+//                                        //showAlertDialog(alert)
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                } else {
+//                    Toast.makeText(applicationContext, "Ha habido un error llamando a la API", Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<Alert?>, t: Throwable) {
+//                // API response is failure
+//                Toast.makeText(applicationContext, "Ha habido un error llamando a la API", Toast.LENGTH_SHORT).show()
+//            }
+//        })
+//    }
+
+    /**
+     * method launchAlert
+     * @param alert
+     * Method that print alert
+     */
+//    private fun launchAlert(alert: Alert?) {
+//        //Toast.makeText(applicationContext, "Va todo chachi", Toast.LENGTH_SHORT).show()
+//        val builder = AlertDialog.Builder(ContextThemeWrapper(this@MainApp, R.style.Theme_ownCloud_Toolbar))
+//
+//        // Create Title Alert
+//        //val titleView = TextView(applicationContext)
+//        //titleView.text = alert!!.getmTitle()
+//        //titleView.setPadding(20, 30, 20, 30)
+//        //titleView.textSize = 20f
+//        // Depending on the type, the title has a different color (type is default or news)
+//        /*if (alert.getmType() == "default") {
+//            titleView.setBackgroundColor(Color.parseColor("#FFFFBB33")) // Yellow
+//        } else {
+//            titleView.setBackgroundColor(Color.RED) // Red
+//        }*/
+//        //titleView.setTextColor(Color.WHITE)
+//        //val view = LayoutInflater.from(this).inflate(R.layout.alert_dialog_educamadrid, null)
+//
+//        //builder.setView(view)
+//        //builder.setCancelable(false)
+//        //builder.setCustomTitle(titleView)
+//        if (alert != null) {
+//            builder.setMessage(alert.getmContent())
+//        }
+//        if (alert != null) {
+//            if (alert.ismClosable()) { // Check closable in JSON
+//                //builder.setPositiveButton(R.string.btnOk, (dialog, which) -> dialog.dismiss());
+//                builder.setPositiveButton("Ok") { dialog, which -> dialog.dismiss() }
+//            }
+//        }
+//        /*val dialog: Dialog = builder.create()
+//        dialog.setCanceledOnTouchOutside(false)
+//        dialog.show()*/
+//        builder.create().show()
+//    }
+//
+//
+//    /*@SuppressLint("RestrictedApi")
+//    open fun showAlertDialog(alert: Alert) {
+//        /*androidx.appcompat.app.AlertDialog.Builder(this@MainApp
+//        )
+//            .setMessage("Lo que sea")
+//            //.setPositiveButton("Ok")
+//            .setCancelable(false)
+//            .show()*/
+//
+//        AlertDialog.Builder(ContextThemeWrapper(R.style.Theme_ownCloud_Toolbar)
+//            .setMessage("Lo que sea")
+//            //.setPositiveButton("Ok")
+//            .setCancelable(false)
+//            .show()
+//    }*/
+
+
+    // EducaMadrid
+
 
     private fun startLogsIfEnabled() {
         val preferenceProvider = SharedPreferencesProviderImpl(applicationContext)
