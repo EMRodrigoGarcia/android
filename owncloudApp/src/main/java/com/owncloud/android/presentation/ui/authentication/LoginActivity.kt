@@ -151,9 +151,12 @@ class LoginActivity : AppCompatActivity(), SslUntrustedCertDialog.OnSslUntrusted
 
         initBrandableOptionsUI()
 
+        /* ******* EducaMadrid ********** */
+
 //        binding.thumbnail.setOnClickListener { checkOcServer() }
 //
 //        binding.embeddedCheckServerButton.setOnClickListener { checkOcServer() }
+        /* ******* EducaMadrid ********** */
         checkOcServer()
 
         binding.loginButton.setOnClickListener {

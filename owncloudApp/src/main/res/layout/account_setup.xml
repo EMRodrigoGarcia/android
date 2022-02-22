@@ -95,6 +95,8 @@
                     android:layout_marginBottom="0dp"
                     android:focusable="true">
 
+                    <!-- ********* EducaMadrid ********* -->
+                    <!-- invisible -->
                     <EditText
                         android:id="@+id/hostUrlInput"
                         style="@style/EditText.Authenticator"
@@ -126,6 +128,7 @@
                         android:visibility="invisible"
                         app:tint="@color/login_text_color" />
 
+                    <!-- ********* EducaMadrid ********* -->
                     <ImageButton
                         android:id="@+id/embeddedRefreshButton"
                         android:layout_width="wrap_content"
