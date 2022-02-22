@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ownCloud Android client application
+  CloudEducaMadrid Android client application
 
   Copyright (C) 2020 ownCloud GmbH.
 
@@ -16,14 +16,40 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
+
+<!--
+    /**
+    * ******************************************************
+    * This file has been modified as of date 04/22/2021
+    * Change 1:
+    * <item android:drawable="@color/splash_background"/>
+    * has been changed to <item android:drawable="@color/white"/>
+    *
+    * Change 2:
+    * <bitmap
+    *   android:src="@drawable/splash_image"
+    *   android:gravity="center"/>
+    * has been changed to <bitmap
+    *   android:src="@drawable/logo"
+    *   android:gravity="center"/>
+    * ******************************************************
+-->
 <layer-list
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:opacity="opaque">
 
-    <item android:drawable="@color/splash_background"/>
+    <!-- ************************** -->
+    <!-- <item android:drawable="@color/splash_background"/> -->
+    <item android:drawable="@color/white"/>
+    <!-- ************************** -->
     <item>
-        <bitmap
+        <!-- ************************** -->
+        <!-- <bitmap
             android:src="@drawable/splash_image"
+            android:gravity="center"/> -->
+        <bitmap
+            android:src="@drawable/logo"
             android:gravity="center"/>
+        <!-- ************************** -->
     </item>
 </layer-list>
