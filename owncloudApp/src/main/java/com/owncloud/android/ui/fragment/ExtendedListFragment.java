@@ -22,6 +22,7 @@
 
 package com.owncloud.android.ui.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -364,6 +365,10 @@ public class ExtendedListFragment extends Fragment
         if (mEmptyListMessage != null) {
             mEmptyListMessage.setText(message);
         }
+        // EducaMadrid
+        mEmptyListMessage.setTextSize(20F);
+        mEmptyListMessage.setTextColor(Color.BLACK);
+        // EducaMadrid
     }
 
     /**

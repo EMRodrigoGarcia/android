@@ -20,9 +20,11 @@
 <resources>
 
     <!-- standard material color definitions -->
-    <color name="primary">@color/owncloud_blue</color>
+<!--    EducaMadrid-->
+    <color name="primary">@color/educamadrid_primary</color>
     <color name="primary_dark">#162233</color>
     <color name="color_accent">@color/owncloud_blue_accent</color>
+<!--    EducaMadrid-->
 
     <!-- Colors -->
     <color name="owncloud_blue">#1b223d</color>
@@ -67,4 +69,15 @@
     <!-- Bottom Sheet Fragment -->
     <color name="bottom_sheet_fragment_item_color">#6E758C</color>
     <color name="bottom_sheet_fragment_title_color">#6E758C</color>
+
+
+    <!-- Colors defined by Madrid's style guidelines -->
+    <color name="educamadrid_primary">#155DB3</color>
+    <color name="educamadrid_secondary">#E6E6E6</color>
+    <color name="educamadrid_primary_hover">#084083</color>
+    <color name="educamadrid_secondary_hover">#444444</color>
+    <color name="educamadrid_news">#d10002</color>
+
+
+
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ownCloud Android client application
+  CloudEducaMadrid Android client application
 
   Copyright (C) 2012  Bartek Przybylski
   Copyright (C) 2020 ownCloud GmbH.
@@ -16,6 +16,23 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
+<!--
+    /**
+    * ******************************************************
+    * This file has been modified as of date 04/22/2021
+    * Change 1:
+    * <style name="Button.Authenticator" parent="Widget.AppCompat.Button.Colored">
+    *   <item name="colorButtonNormal">@color/login_button_background_color</item>
+    *   <item name="colorAccent">@color/login_button_background_color</item>
+    *   <item name="android:textColor">@color/login_button_text_color</item>
+    * </style>
+    * has been changed to <style name="Button.Authenticator" parent="Widget.AppCompat.Button.Colored">
+    *   <item name="colorButtonNormal">@color/login_button_text_color</item>
+    *   <item name="colorAccent">@color/login_button_text_color</item>
+    *   <item name="android:textColor">@color/login_button_background_color</item>
+    * </style>
+    * ******************************************************
+-->
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="Animations" />
@@ -26,6 +43,8 @@
          To apply directly only on Activities that cannot extend ToolbarActivity;
          otherwise, prefer Theme.ownCloud.Toolbar -->
     <style name="Theme.ownCloud" parent="Theme.AppCompat.Light.DarkActionBar">
+<!--        <item name="android:textViewStyle">@style/Theme.ownCloud.FontFamilyPrimary</item>-->
+<!--        <item name="android:editTextStyle">@style/Theme.ownCloud.FontFamilySecondary</item>-->
         <item name="android:windowBackground">@color/background_color</item>
 
         <!-- theme for the app bar (both for old actionbar and new toolbar) -->
@@ -129,8 +148,11 @@
     </style>
 
     <style name="Button.Primary" parent="Widget.AppCompat.Button.Colored">
-        <item name="colorButtonNormal">@color/primary_button_background_color</item>
+        <!-- <item name="colorButtonNormal">@color/primary_button_background_color</item>
         <item name="colorAccent">@color/primary_button_background_color</item>
+        <item name="android:textColor">@color/primary_button_text_color</item> -->
+        <item name="colorButtonNormal">@color/educamadrid_primary</item>
+        <item name="colorAccent">@color/educamadrid_primary_hover</item>
         <item name="android:textColor">@color/primary_button_text_color</item>
     </style>
 
@@ -256,15 +278,24 @@
         <item name="actionModeBackground">@color/action_mode_background</item>
     </style>
 
-    <style name="Button.Authenticator" parent="Widget.AppCompat.Button.Colored">
+    <!-- ****************** -->
+    <!-- <style name="Button.Authenticator" parent="Widget.AppCompat.Button.Colored">
         <item name="colorButtonNormal">@color/login_button_background_color</item>
         <item name="colorAccent">@color/login_button_background_color</item>
         <item name="android:textColor">@color/login_button_text_color</item>
+    </style> -->
+
+    <style name="Button.Authenticator" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/educamadrid_secondary</item>
+        <item name="colorAccent">@color/educamadrid_secondary_hover</item>
+        <item name="android:textColor">@color/educamadrid_primary</item>
     </style>
+    <!-- ***************** -->
 
     <style name="EditText.Authenticator" parent="Widget.AppCompat.EditText">
         <item name="android:textColor">@color/login_text_color</item>
         <item name="android:textColorHint">@color/login_text_hint_color</item>
+<!--        <item name="android:editTextStyle">@style/Theme.ownCloud.FontFamilySecondary</item>-->
     </style>
 
     <style name="Theme.ownCloud.Authenticator.EditText" parent="Theme.ownCloud.Authenticator">
@@ -278,4 +309,298 @@
     <style name="Theme.ownCloud.SortBottomSheetFragment.Item">
         <item name="android:textAppearance">@style/TextAppearance.OwnCloud.SortBottomSheetFragment.Item</item>
     </style>
+
+    <!-- FontFamily -->
+<!--    <style name="Theme.ownCloud.FontFamilyPrimary" parent="@android:style/TextAppearance.Small">-->
+<!--        <item name="android:fontFamily">@font/montserrat</item>-->
+<!--    </style>-->
+
+<!--    <style name="Theme.ownCloud.FontFamilySecondary" parent="@android:style/TextAppearance.Small">-->
+<!--        <item name="android:fontFamily">@font/helvetica</item>-->
+<!--    </style>-->
 </resources>
+
+
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>&lt;!&ndash;-->
+<!--  ownCloud Android client application-->
+
+<!--  Copyright (C) 2012  Bartek Przybylski-->
+<!--  Copyright (C) 2020 ownCloud GmbH.-->
+
+<!--  This program is free software: you can redistribute it and/or modify-->
+<!--  it under the terms of the GNU General Public License version 2,-->
+<!--  as published by the Free Software Foundation.-->
+
+<!--  This program is distributed in the hope that it will be useful,-->
+<!--  but WITHOUT ANY WARRANTY; without even the implied warranty of-->
+<!--  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the-->
+<!--  GNU General Public License for more details.-->
+
+<!--  You should have received a copy of the GNU General Public License-->
+<!--  along with this program.  If not, see <http://www.gnu.org/licenses/>.-->
+<!--&ndash;&gt;-->
+<!--<resources xmlns:android="http://schemas.android.com/apk/res/android">-->
+
+<!--    <style name="Animations" />-->
+
+<!--    &lt;!&ndash; THEMES: styles for whole APP or individual ACTIVITIES &ndash;&gt;-->
+
+<!--    &lt;!&ndash; General ownCloud app style.-->
+<!--         To apply directly only on Activities that cannot extend ToolbarActivity;-->
+<!--         otherwise, prefer Theme.ownCloud.Toolbar &ndash;&gt;-->
+<!--    <style name="Theme.ownCloud" parent="Theme.AppCompat.Light.DarkActionBar">-->
+<!--        <item name="android:windowBackground">@color/background_color</item>-->
+
+<!--        &lt;!&ndash; theme for the app bar (both for old actionbar and new toolbar) &ndash;&gt;-->
+<!--        <item name="actionBarTheme">@style/ownCloud.Appbar</item>-->
+
+<!--        &lt;!&ndash; properties for action mode &ndash;&gt;-->
+<!--        <item name="windowActionModeOverlay">true</item>-->
+<!--        <item name="actionModeBackground">@color/action_mode_background</item>-->
+
+<!--        &lt;!&ndash; colors, Material Design way &ndash;&gt;-->
+<!--        <item name="colorPrimary">@color/primary</item>-->
+<!--        <item name="colorPrimaryDark">@color/primary_dark</item>-->
+<!--        <item name="colorAccent">@color/color_accent</item>-->
+
+<!--        &lt;!&ndash; default theme for alert dialogs &ndash;&gt;-->
+<!--        <item name="alertDialogTheme">@style/Theme.ownCloud.AlertDialog</item>-->
+
+<!--        &lt;!&ndash; style for search view &ndash;&gt;-->
+<!--        <item name="searchViewStyle">@style/ownCloud.SearchView</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Splash Screen &ndash;&gt;-->
+<!--    <style name="Theme.ownCloud.Splash">-->
+<!--        <item name="android:windowBackground">@drawable/splash_screen</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Extends Theme.ownCloud to remove legacy ActionBar from the window and add, via layouts, a Toolbar &ndash;&gt;-->
+<!--    <style name="Theme.ownCloud.Toolbar">-->
+<!--        <item name="windowNoTitle">true</item>-->
+<!--        <item name="windowActionBar">false</item>-->
+<!--        &lt;!&ndash; (status/nav)BarColor are set by the Activity, not the system &ndash;&gt;-->
+<!--        <item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Extends Theme.ownCloud.Toolbar for Drawer activities including Drawer &ndash;&gt;-->
+<!--    <style name="Theme.ownCloud.Toolbar.Drawer">-->
+<!--        <item name="android:statusBarColor">@android:color/transparent</item>-->
+<!--        <item name="android:windowAnimationStyle">@null</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Extends Theme.ownCloud to make LEGACY ActionBar both OVERLAY and TRANSPARENT &ndash;&gt;-->
+<!--    <style name="Theme.ownCloud.Overlay">-->
+<!--        <item name="windowActionBarOverlay">true</item>-->
+<!--        <item name="actionBarTheme">@style/ownCloud.Appbar.Transparent</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Extends Theme.ownCloud for video in full screen mode &ndash;&gt;-->
+<!--    <style name="Theme.ownCloud.Fullscreen">-->
+<!--        <item name="android:windowFullscreen">true</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="android:windowBackground">@android:color/background_dark</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; DIALOG THEMES: styles for DIALOGs &ndash;&gt;-->
+
+<!--    &lt;!&ndash; DEFAULT (via Theme.ownCloud), and explicitly used ONCE, in Preference "behaviour" for instant uploads - NO MORE, not needed, it's default &ndash;&gt;-->
+<!--    <style name="Theme.ownCloud.AlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">-->
+<!--        <item name="colorAccent">@color/color_accent</item>-->
+<!--        <item name="android:textColorPrimary">@color/primary</item>-->
+<!--        <item name="searchViewStyle">@style/ownCloud.SearchView</item>-->
+<!--        <item name="buttonBarButtonStyle">@style/Theme.ownCloud.Dialog.ButtonBar.Button</item>-->
+<!--        <item name="buttonBarStyle">@style/Theme.ownCloud.Dialog.ButtonBar</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; USED IN SHAREACTIVITY!! !! &ndash;&gt;-->
+<!--    <style name="Theme.ownCloud.AlertDialog.NoTitle">-->
+<!--        <item name="windowNoTitle">true</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; APP BAR styles &ndash;&gt;-->
+
+<!--    &lt;!&ndash; Regular style for the app bar (both for old actionbar and new toolbar);-->
+<!--         overrides colorPrimary to allow customization of the app bar color,-->
+<!--         independent of Material Design guidelines, if desired-->
+<!--    &ndash;&gt;-->
+<!--    <style name="ownCloud.Appbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">-->
+<!--        <item name="colorPrimary">@color/actionbar_start_color</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Transparent style for the app bar &ndash;&gt;-->
+<!--    <style name="ownCloud.Appbar.Transparent" parent="ThemeOverlay.AppCompat.Dark.ActionBar">-->
+<!--        <item name="colorPrimary">@color/owncloud_blue_transparent</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; MORE styles &ndash;&gt;-->
+
+<!--    <style name="ownCloud.SearchView" parent="Widget.AppCompat.SearchView">-->
+<!--        &lt;!&ndash; Close button icon &ndash;&gt;-->
+<!--        <item name="closeIcon">@drawable/ic_close</item>-->
+<!--        &lt;!&ndash; Search button icon &ndash;&gt;-->
+<!--        <item name="searchIcon">@drawable/ic_search</item>-->
+<!--        &lt;!&ndash; Layout for query suggestion rows &ndash;&gt;-->
+<!--        <item name="suggestionRowLayout">@layout/search_suggestion_row</item>>-->
+<!--    </style>-->
+
+<!--    <style name="Button.Secondary" parent="Widget.AppCompat.Button.Colored">-->
+<!--        <item name="colorButtonNormal">@color/secondary_button_background_color</item>-->
+<!--        <item name="colorAccent">@color/secondary_button_background_color</item>-->
+<!--        <item name="android:textColor">@color/secondary_button_text_color</item>-->
+<!--    </style>-->
+
+<!--    <style name="Button.Primary" parent="Widget.AppCompat.Button.Colored">-->
+<!--        <item name="colorButtonNormal">@color/primary_button_background_color</item>-->
+<!--        <item name="colorAccent">@color/primary_button_background_color</item>-->
+<!--        <item name="android:textColor">@color/primary_button_text_color</item>-->
+<!--    </style>-->
+
+<!--    <style name="Button.Borderless" parent="Widget.AppCompat.Button.Borderless">-->
+<!--        <item name="android:textColor">@color/color_accent</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Style for top progress bar &ndash;&gt;-->
+<!--    <style name="Widget.ownCloud.TopProgressBar" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">-->
+<!--        &lt;!&ndash; for a custom color independent of @color/primary,-->
+<!--        change value of actionbar_start_color in setup.xml, don't modify here &ndash;&gt;-->
+<!--        <item name="android:background">@color/actionbar_start_color</item>-->
+<!--        <item name="android:progressDrawable">@drawable/top_progress_bar_determinate</item>-->
+<!--        <item name="android:indeterminateDrawable">@drawable/top_progress_bar_indeterminate</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Dialogs &ndash;&gt;-->
+<!--    <style name="menu_labels_style">-->
+<!--        <item name="android:background">@drawable/fab_label_background</item>-->
+<!--        <item name="android:textColor">@color/fab_white</item>-->
+<!--    </style>-->
+
+<!--    <style name="NavigationView_ItemTextAppearance">-->
+<!--        <item name="android:ellipsize">end</item>-->
+<!--        <item name="android:listDivider">@color/grey</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Button Bar hack due to Lollipop bug:-->
+<!--        https://code.google.com/p/android/issues/detail?id=78302-->
+<!--    fix see:-->
+<!--        http://stackoverflow.com/questions/27187353/dialog-buttons-with-long-text-not-wrapping-squeezed-out-material-theme-on-an-->
+<!--     &ndash;&gt;-->
+<!--    <style name="Theme.ownCloud.Dialog.ButtonBar" parent="@style/Widget.AppCompat.ButtonBar.AlertDialog">-->
+<!--        &lt;!&ndash; Making sure, the button bar uses parent width and is not restricted in height &ndash;&gt;-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:height">@null</item>-->
+<!--        <item name="android:minHeight">@null</item>-->
+<!--    </style>-->
+
+<!--    <style name="Theme.ownCloud.Dialog.ButtonBar.Button" parent="@style/Widget.AppCompat.Button.Borderless.Colored">-->
+<!--        &lt;!&ndash; Setting the weight as follows should result in equally wide buttons filling the alert dialog width,-->
+<!--            but instead they span further out of the dialog, breaking in multiple lines though &ndash;&gt;-->
+<!--        <item name="android:layout_width">0dp</item>-->
+<!--        <item name="android:layout_weight">1</item>-->
+<!--        &lt;!&ndash; setting a fixed width as follows results in narrow buttons with line breaks, but of course this is not a solution &ndash;&gt;-->
+<!--        &lt;!&ndash; <item name="android:width">100dp</item> &ndash;&gt;-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; PopDownMenu &ndash;&gt;-->
+<!--    <style name="Animations.PopDownMenu" />-->
+
+<!--    <style name="Animations.PopDownMenu.Center">-->
+<!--        <item name="android:windowEnterAnimation">@anim/grow_from_top</item>-->
+<!--        <item name="android:windowExitAnimation">@anim/shrink_from_bottom</item>-->
+<!--    </style>-->
+
+<!--    <style name="Animations.PopDownMenu.Left">-->
+<!--        <item name="android:windowEnterAnimation">@anim/grow_from_topleft_to_bottomright</item>-->
+<!--        <item name="android:windowExitAnimation">@anim/shrink_from_bottomright_to_topleft</item>-->
+<!--    </style>-->
+
+<!--    <style name="Animations.PopDownMenu.Right">-->
+<!--        <item name="android:windowEnterAnimation">@anim/grow_from_topright_to_bottomleft</item>-->
+<!--        <item name="android:windowExitAnimation">@anim/shrink_from_bottomleft_to_topright</item>-->
+<!--    </style>-->
+
+<!--    <style name="Animations.PopDownMenu.Reflect">-->
+<!--        <item name="android:windowEnterAnimation">@anim/pump_top</item>-->
+<!--        <item name="android:windowExitAnimation">@anim/disappear</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; PopUpMenu &ndash;&gt;-->
+<!--    <style name="Animations.PopUpMenu" />-->
+
+<!--    <style name="Animations.PopUpMenu.Center">-->
+<!--        <item name="android:windowEnterAnimation">@anim/grow_from_bottom</item>-->
+<!--        <item name="android:windowExitAnimation">@anim/shrink_from_top</item>-->
+<!--    </style>-->
+
+<!--    <style name="Animations.PopUpMenu.Left">-->
+<!--        <item name="android:windowEnterAnimation">@anim/grow_from_bottomleft_to_topright</item>-->
+<!--        <item name="android:windowExitAnimation">@anim/shrink_from_topright_to_bottomleft</item>-->
+<!--    </style>-->
+
+<!--    <style name="Animations.PopUpMenu.Right">-->
+<!--        <item name="android:windowEnterAnimation">@anim/grow_from_bottomright_to_topleft</item>-->
+<!--        <item name="android:windowExitAnimation">@anim/shrink_from_topleft_to_bottomright</item>-->
+<!--    </style>-->
+
+<!--    <style name="Animations.PopUpMenu.Reflect">-->
+<!--        <item name="android:windowEnterAnimation">@anim/pump_bottom</item>-->
+<!--        <item name="android:windowExitAnimation">@anim/disappear</item>-->
+<!--    </style>-->
+
+<!--    <style name="PassCodeStyle">-->
+<!--        <item name="android:layout_width">50dp</item>-->
+<!--        <item name="android:layout_height">50dp</item>-->
+<!--        <item name="android:gravity">center</item>-->
+<!--        <item name="android:layout_margin">10dp</item>-->
+<!--        <item name="android:inputType">numberDecimal</item>-->
+<!--        <item name="android:numeric">decimal</item>-->
+<!--        <item name="android:digits">1234567890</item>-->
+<!--        <item name="android:maxLength">1</item>-->
+<!--        <item name="android:password">true</item>-->
+<!--        <item name="android:singleLine">true</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Notifications &ndash;&gt;-->
+<!--    <style name="Theme.ownCloud.NotificationText.Title" parent="@android:style/TextAppearance.StatusBar.EventContent.Title">-->
+<!--        <item name="android:textSize">18sp</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--    </style>-->
+
+<!--    <style name="Theme.ownCloud.NotificationText.Content" parent="@android:style/TextAppearance.StatusBar.EventContent">-->
+<!--        <item name="android:textSize">16sp</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Authenticator Activity &ndash;&gt;-->
+<!--    <style name="Theme.ownCloud.Authenticator" parent="Theme.ownCloud">-->
+<!--        &lt;!&ndash; properties for action mode &ndash;&gt;-->
+<!--        <item name="windowActionModeOverlay">true</item>-->
+<!--        <item name="actionModeBackground">@color/action_mode_background</item>-->
+<!--    </style>-->
+
+<!--    <style name="Button.Authenticator" parent="Widget.AppCompat.Button.Colored">-->
+<!--        <item name="colorButtonNormal">@color/login_button_background_color</item>-->
+<!--        <item name="colorAccent">@color/login_button_background_color</item>-->
+<!--        <item name="android:textColor">@color/login_button_text_color</item>-->
+<!--    </style>-->
+
+<!--    <style name="EditText.Authenticator" parent="Widget.AppCompat.EditText">-->
+<!--        <item name="android:textColor">@color/login_text_color</item>-->
+<!--        <item name="android:textColorHint">@color/login_text_hint_color</item>-->
+<!--    </style>-->
+
+<!--    <style name="Theme.ownCloud.Authenticator.EditText" parent="Theme.ownCloud.Authenticator">-->
+<!--        <item name="colorControlNormal">@color/login_text_color</item>-->
+<!--        <item name="colorControlActivated">@color/login_text_color</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; SortBottomSheetFragment &ndash;&gt;-->
+<!--    <style name="Theme.ownCloud.SortBottomSheetFragment" />-->
+
+<!--    <style name="Theme.ownCloud.SortBottomSheetFragment.Item">-->
+<!--        <item name="android:textAppearance">@style/TextAppearance.OwnCloud.SortBottomSheetFragment.Item</item>-->
+<!--    </style>-->
+<!--</resources>-->
