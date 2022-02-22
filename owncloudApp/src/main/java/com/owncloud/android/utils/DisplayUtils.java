@@ -134,12 +134,15 @@ public class DisplayUtils {
     }
 
     public static int getSeasonalIconId() {
-        if (Calendar.getInstance().get(Calendar.DAY_OF_YEAR) >= 354 &&
-                MainApp.Companion.getAppContext().getString(R.string.app_name).equals(OWNCLOUD_APP_NAME)) {
-            return R.drawable.winter_holidays_icon;
-        } else {
-            return R.mipmap.icon;
-        }
+//        EducaMadrid
+//        if (Calendar.getInstance().get(Calendar.DAY_OF_YEAR) >= 354 &&
+//                MainApp.Companion.getAppContext().getString(R.string.app_name).equals(OWNCLOUD_APP_NAME)) {
+//            return R.drawable.winter_holidays_icon;
+//        } else {
+//            return R.mipmap.icon;
+//        }
+//        EducaMadrid
+         return R.mipmap.icon;
     }
 
     /**
