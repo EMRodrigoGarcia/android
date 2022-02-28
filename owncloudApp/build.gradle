@@ -102,6 +102,7 @@ android {
     compileSdkVersion sdkCompileVersion
 
     defaultConfig {
+        applicationId "com.educamadrid.cloudeducamadrid"
         minSdkVersion sdkMinVersion
         targetSdkVersion sdkTargetVersion
 
