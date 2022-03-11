@@ -31,6 +31,7 @@
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_weight="1"
             android:text="@string/welcome_feature_skip_button"
+            android:contentDescription="@string/exo_item_list"
             android:textColor="@color/white" />
 
         <com.educamadrid.cloudeducamadrid.ui.whatsnew.ProgressIndicator
@@ -54,6 +55,7 @@
                 android:layout_height="48dp"
                 android:layout_gravity="center"
                 android:padding="@dimen/standard_padding"
+                android:contentDescription="@string/media_forward_description"
                 android:src="@drawable/ic_arrow_forward" />
         </LinearLayout>
     </LinearLayout>

@@ -49,12 +49,15 @@ public class FeatureList {
                     R.string.welcome_feature_1_text, DEFAULT_WIZARD_VERSION_NAME, INDIFFERENT, SHOW_ON_FIRST_RUN),
             new FeatureItem(R.drawable.whats_new_share, R.string.welcome_feature_2_title,
                     R.string.welcome_feature_2_text, DEFAULT_WIZARD_VERSION_NAME, INDIFFERENT, SHOW_ON_FIRST_RUN),
+            // TODO: cambiar texto
+//            texto a poner: title: Multidispositivo, subject: Todos tus archivos en los servidores de EducaMadrid
             new FeatureItem(R.drawable.whats_new_accounts, R.string.welcome_feature_3_title,
                     R.string.welcome_feature_3_text, DEFAULT_WIZARD_VERSION_NAME, INDIFFERENT, SHOW_ON_FIRST_RUN),
-            new FeatureItem(R.drawable.whats_new_camera_uploads, R.string.welcome_feature_4_title,
-                    R.string.welcome_feature_4_text, DEFAULT_WIZARD_VERSION_NAME, INDIFFERENT, SHOW_ON_FIRST_RUN),
-            new FeatureItem(R.drawable.whats_new_video_streaming, R.string.welcome_feature_5_title,
-                    R.string.welcome_feature_5_text, DEFAULT_WIZARD_VERSION_NAME, INDIFFERENT, SHOW_ON_FIRST_RUN)
+            // TODO: quitar cuarta y quinta
+//            new FeatureItem(R.drawable.whats_new_camera_uploads, R.string.welcome_feature_4_title,
+//                    R.string.welcome_feature_4_text, DEFAULT_WIZARD_VERSION_NAME, INDIFFERENT, SHOW_ON_FIRST_RUN),
+//            new FeatureItem(R.drawable.whats_new_video_streaming, R.string.welcome_feature_5_title,
+//                    R.string.welcome_feature_5_text, DEFAULT_WIZARD_VERSION_NAME, INDIFFERENT, SHOW_ON_FIRST_RUN)
     };
 
     static public FeatureItem[] get() {

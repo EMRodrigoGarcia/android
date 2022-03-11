@@ -42,6 +42,7 @@
                 android:id="@+id/fdIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/actionbar_upload_files"
                 android:src="@drawable/file" />
 
             <TextView
@@ -64,12 +65,14 @@
             android:layout_marginLeft="@dimen/standard_margin"
             android:layout_marginRight="@dimen/standard_margin"
             android:layout_marginTop="@dimen/standard_margin">
-
+            <!--
+                android:layout_alignParentLeft="true"
+                -->
             <RelativeLayout
                 android:id="@+id/fdLabelContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
+               android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true">
 
                 <TextView
@@ -196,6 +199,7 @@
                     android:layout_marginStart="12dp"
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_action_cancel_grey"
+                    android:contentDescription="@string/share_cancel_public_link_button"
                     />
 
             </LinearLayout>

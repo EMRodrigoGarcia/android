@@ -11,6 +11,7 @@
 
     <TextView
         android:id="@+id/header_pattern"
+        android:labelFor="@+id/pattern_lock_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pattern_enter_pattern"
@@ -49,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@id/pattern_lock_view"
+            android:textColor="#000000"
             android:text="@android:string/cancel"
             android:theme="@style/Button.Primary" />
 

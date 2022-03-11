@@ -25,22 +25,24 @@
 
     <ImageView
         android:id="@+id/icon"
+        android:contentDescription="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="20dp"
         app:tint="@color/black"
         android:src="@drawable/ic_account_plus" />
-
+<!--
+        android:layout_marginLeft="28dp"
+        android:paddingEnd="@dimen/standard_padding"
+         -->
     <TextView
         android:id="@+id/name"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_marginLeft="28dp"
         android:layout_marginStart="20dp"
         android:layout_weight="1"
         android:gravity="center_vertical"
-        android:paddingEnd="@dimen/standard_padding"
         android:text="@string/placeholder_filename"
         android:textColor="@color/black"
         android:textSize="@dimen/two_line_primary_text_size" />

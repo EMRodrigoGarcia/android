@@ -3,8 +3,8 @@
 
     <!-- App name  and other strings-->
     <!-- EducaMadrid -->
-    <string name="app_name" formatted="false">EducaMadrid Cloud</string>
-    <string name="account_type" formatted="false">EducaMadrid Cloud</string>    <!-- better if was a domain name; but changing it now would require migrate accounts when the app is updated -->
+    <string name="app_name" formatted="false">CloudEducaMadrid</string>
+    <string name="account_type" formatted="false">CloudEducaMadrid</string>    <!-- better if was a domain name; but changing it now would require migrate accounts when the app is updated -->
     <!-- EducaMadrid-->
     <string name="authority" formatted="false">org.owncloud</string>
     <string name="document_provider_authority" formatted="false">org.owncloud.documents</string>
@@ -13,10 +13,10 @@
     <string name="search_suggest_intent_action" formatted="false">org.owncloud.search.users_and_groups.action.SHARE_WITH</string>
     <string name="db_file" formatted="false">owncloud.db</string>
     <!-- EducaMadrid -->
-    <string name="db_name" formatted="false">EducaMadrid Cloud </string>
-    <string name="data_folder" formatted="false">EducaMadrid Cloud</string>
-    <string name="log_name" formatted="false">EducaMadridCloud_</string>
-    <string name="default_display_name_for_root_folder" formatted="false">EducaMadrid Cloud</string>
+    <string name="db_name" formatted="false">CloudEducaMadrid</string>
+    <string name="data_folder" formatted="false">CloudEducaMadrid</string>
+    <string name="log_name" formatted="false">CloudEducaMadrid_</string>
+    <string name="default_display_name_for_root_folder" formatted="false">CloudEducaMadrid</string>
     <!-- EducaMadrid -->
 
     <string name="user_agent">Mozilla/5.0 (Android) ownCloud-android/%1$s</string>
@@ -27,7 +27,8 @@
     <bool name="show_welcome_link">true</bool>
 
     <!-- EducaMadrid TODO: Cambiar este enlace a ayuda de aplicación -->
-    <string name="welcome_link_url" formatted="false">"https://owncloud.com/docs-guides"</string>
+    <!-- <string name="welcome_link_url" formatted="false">"https://owncloud.com/docs-guides"</string> -->
+    <string name="welcome_link_url" formatted="false">"https://documentacion.educa.madrid.org/books/cloud/page/educamadrid-cloud"</string>
     <string name="share_api_link" formatted="false"></string>
     <string name="login_welcome_text" formatted="false"></string>
 
@@ -74,11 +75,12 @@
     <bool name="feedback_enabled">true</bool>
     <bool name="privacy_policy_enabled">true</bool>
     <bool name="wizard_enabled">true</bool>
-    <string name="url_privacy_policy" formatted="false">https://owncloud.com/android-app-privacy-policy/</string>
-    <string name="url_help" formatted="false">https://doc.owncloud.com/android</string>
+    <string name="url_privacy_policy" formatted="false">https://www.educa2.madrid.org/educamadrid/politica-privacidad#apps</string>
+    <string name="url_help" formatted="false">https://documentacion.educa.madrid.org/books/cloud/page/educamadrid-cloud</string>
     <string name="url_imprint" formatted="false"></string>
     <string name="mail_recommend" formatted="false">"mailto:"</string>
-    <string name="mail_feedback" formatted="false">"mailto:android-app@owncloud.com"</string>
+    <!-- <string name="mail_feedback" formatted="false">"mailto:android-app@owncloud.com"</string> -->
+    <string name="mail_feedback" formatted="false">"mailto:cau@educa.madrid.org"</string>
     <string name="url_app_download" formatted="false">"https://play.google.com/store/apps/details?id=com.owncloud.android"</string>
     <string name="url_sync_calendar_contacts">"https://play.google.com/store/apps/details?id=at.bitfire.davdroid"</string>
 

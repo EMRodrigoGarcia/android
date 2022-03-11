@@ -520,7 +520,7 @@
   <string name="share_via_link_default_password">*****</string>
   <string name="share_via_link_password_enforced_label">Contraseña *</string>
   <string name="share_via_link_expiration_date_enforced_label">Caducidad *</string>
-  <string name="share_via_link_expiration_date_explanation_label">El enlace público no expirará antes de %1$d dias despues de ser creado</string>
+  <string name="share_via_link_expiration_date_explanation_label">El enlace público no expirará antes de %1$d días después de ser creado</string>
   <string name="share_via_link_default_name_template">%1$s enlace</string>
   <string name="share_via_link_empty_password">La contraseña está vacía</string>
   <string name="private_link_info">Enlace privado: Solo las personas que tengan acceso al archivo/carpeta, podrán usarlo. Uselo como enlace permanente para Vd, o para que otros puedan acceder a sus compartidos.</string>
@@ -549,8 +549,11 @@
   <string name="welcome_feature_1_text">Puedes copiar, mover y eliminar</string>
   <string name="welcome_feature_2_title">Compartir archivos y carpetas</string>
   <string name="welcome_feature_2_text">Puedes compartir de forma privada o públicamente</string>
-  <string name="welcome_feature_3_title">Multi cuenta</string>
-  <string name="welcome_feature_3_text">Conectar todos tus Servidores ownCloud</string>
+<!--    EducaMadrid-->
+<!--  <string name="welcome_feature_3_title">Multi cuenta</string>-->
+<!--  <string name="welcome_feature_3_text">Conectar todos tus Servidores ownCloud</string>-->
+  <string name="welcome_feature_3_title">MultiDispositivo</string>
+  <string name="welcome_feature_3_text">Tus archivos en los servidores de EducaMadrid</string>
   <string name="welcome_feature_4_title">Subidas de cámara</string>
   <string name="welcome_feature_4_text">Tus fotografías/vídeos automáticamente se subirán</string>
   <string name="welcome_feature_5_title">Streaming de video</string>
@@ -565,4 +568,9 @@
   <!--Scoped storage migration wizard-->
   <!--Security Enforced-->
   <string name="security_enforced_first_option">Código de bloqueo</string>
+    <!-- EducaMadrid -->
+<string name="sharepubliclinkclosebutton">sharePublicLinkCloseButton</string>
+    <string name="user_input">Introduce texto</string>
+    <string name="checkbox">Marcar casilla</string>
+    <string name="foreign_files_local_text">Local: %1$s</string>
 </resources>

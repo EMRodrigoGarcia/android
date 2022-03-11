@@ -43,6 +43,7 @@
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/uploadListGroupName"
+        android:textColor="#000000"
         tools:text="@string/action_upload_clear"
         tools:visibility="visible" />
 
@@ -54,6 +55,7 @@
         android:visibility="gone"
         app:layout_constraintStart_toEndOf="@id/uploadListGroupButtonClear"
         app:layout_constraintTop_toBottomOf="@id/uploadListGroupName"
+        android:textColor="#000000"
         tools:text="@string/action_upload_retry"
         tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>
