@@ -316,7 +316,8 @@
   <string name="sync_file_nothing_to_do_msg">Ya está sincronizado</string>
   <string name="create_dir_fail_msg">No se pudo crear la carpeta</string>
   <string name="filename_forbidden_characters">Carácteres ilegales: / \\ &lt; &gt; : \" | ? *</string>
-  <string name="filename_forbidden_characters_from_server">Nombre de archivo con, al menos, un carácter no válido</string>
+<!--  <string name="filename_forbidden_characters_from_server">Nombre de archivo con, al menos, un carácter no válido</string>-->
+  <string name="filename_forbidden_characters_from_server">Error de permisos o carácter no válido en nombre de archivo</string>
   <string name="filename_empty">El nombre de archivo no puede estar vacío</string>
   <string name="wait_a_moment">Espera un momento</string>
   <string name="wait_checking_credentials">Comprobando las credenciales guardadas</string>
