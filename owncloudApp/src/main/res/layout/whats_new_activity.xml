@@ -34,7 +34,7 @@
             android:contentDescription="@string/exo_item_list"
             android:textColor="@color/white" />
 
-        <com.educamadrid.cloudeducamadrid.ui.whatsnew.ProgressIndicator
+        <com.educamadrid.cloudeduca.ui.whatsnew.ProgressIndicator
             android:id="@+id/progressIndicator"
             android:layout_width="0dp"
             android:layout_height="match_parent"
