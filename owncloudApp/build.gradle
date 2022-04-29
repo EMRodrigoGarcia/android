@@ -102,14 +102,14 @@ android {
     compileSdkVersion sdkCompileVersion
 
     defaultConfig {
-        applicationId "com.educamadrid.cloudeducamadrid"
+        applicationId "com.educamadrid.cloudeduca"
         minSdkVersion sdkMinVersion
         targetSdkVersion sdkTargetVersion
 
         testInstrumentationRunner "com.owncloud.android.utils.OCTestAndroidJUnitRunner"
 
-        versionCode = 22000004
-        versionName = "2.21"
+        versionCode = 22000005
+        versionName = "2.22"
 
         buildConfigField "String", gitRemote, "\"" + getGitOriginRemote() + "\""
         buildConfigField "String", commitSHA1, "\"" + getLatestGitHash() + "\""
