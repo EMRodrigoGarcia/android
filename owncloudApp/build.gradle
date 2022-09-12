@@ -27,9 +27,11 @@ dependencies {
     implementation "androidx.sqlite:sqlite-ktx:$sqliteVersion"
     implementation "androidx.biometric:biometric:$biometricVersion"
 
-    // EducaMadrid: Libreria retrofit y GSON
-//    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-//    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    // EducaMadrid: Libreria de llamadas API y parseo de JSON
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    // EducaMadrid: Libreria de uso de LocalDateTime
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.4.0'
 
 
     // Image loading
@@ -47,6 +49,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
+    implementation 'com.google.firebase:protolite-well-known-types:18.0.0'
     kapt "androidx.lifecycle:lifecycle-common-java8:$archLifecycleVersion"
 
     kapt "org.xerial:sqlite-jdbc:3.34.0" // fix kapt for Apple Silicon https://stackoverflow.com/a/68285501/1079990

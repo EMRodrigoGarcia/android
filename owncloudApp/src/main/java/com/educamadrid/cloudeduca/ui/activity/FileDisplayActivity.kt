@@ -31,6 +31,8 @@ package com.educamadrid.cloudeduca.ui.activity
 import android.accounts.Account
 import android.accounts.AuthenticatorException
 import android.app.Activity
+import android.app.AlertDialog
+import android.app.Dialog
 import android.content.BroadcastReceiver
 import android.content.ComponentName
 import android.content.Context
@@ -38,12 +40,18 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.content.ServiceConnection
 import android.content.res.Resources.NotFoundException
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.os.IBinder
+import android.util.Log
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
@@ -78,6 +86,7 @@ import com.educamadrid.cloudeduca.operations.RenameFileOperation
 import com.educamadrid.cloudeduca.operations.SynchronizeFileOperation
 import com.educamadrid.cloudeduca.operations.UploadFileOperation
 import com.educamadrid.cloudeduca.presentation.ui.security.bayPassUnlockOnce
+import com.educamadrid.cloudeduca.services.AlertService
 import com.educamadrid.cloudeduca.syncadapter.FileSyncAdapter
 import com.educamadrid.cloudeduca.ui.errorhandling.ErrorMessageAdapter
 import com.educamadrid.cloudeduca.ui.fragment.FileDetailFragment
@@ -92,12 +101,19 @@ import com.educamadrid.cloudeduca.ui.preview.PreviewImageFragment
 import com.educamadrid.cloudeduca.ui.preview.PreviewTextFragment
 import com.educamadrid.cloudeduca.ui.preview.PreviewVideoActivity
 import com.educamadrid.cloudeduca.ui.preview.PreviewVideoFragment
+import com.educamadrid.cloudeduca.utils.Alert
+import com.educamadrid.cloudeduca.utils.AlertObject
 import com.educamadrid.cloudeduca.utils.Extras
 import com.educamadrid.cloudeduca.utils.PreferenceUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import timber.log.Timber
 import java.io.File
 import java.util.ArrayList
@@ -144,6 +160,9 @@ class FileDisplayActivity : FileActivity(), FileFragment.ContainerActivity, OnEn
         get() = listOfFilesFragment?.fabMain?.isExpanded ?: false
 
     private lateinit var binding: ActivityMainBinding
+
+//    protected val URL_ALERT = "https://jsonkeeper.com/" // Pruebas
+    protected val URL_ALERT = "https://api.npoint.io/" // Pruebas
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Timber.v("onCreate() start")
@@ -227,6 +246,88 @@ class FileDisplayActivity : FileActivity(), FileFragment.ContainerActivity, OnEn
         }
 
         setBackgroundText()
+        loadDatos()
+    }
+
+    /**
+     * EducaMadrid
+     * method loadDatos
+     * Method that read the JSON and pass the object @see Alert method @see launchAlert()
+     */
+    private fun loadDatos() {
+        // Building retrofit
+        val retrofit = Retrofit.Builder()
+            .baseUrl(URL_ALERT)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val alertService = retrofit.create(AlertService::class.java)
+
+        val callAsync = alertService.alert
+
+        callAsync.enqueue(object : Callback<AlertObject?> {
+            override fun onResponse(call: Call<AlertObject?>, response: Response<AlertObject?>) {
+                // API response is successful
+                if (response.isSuccessful) {
+                    val alertObj = response.body()
+                    // Getting cloud object (only relevant one)
+                    val alert = alertObj?.alert
+
+                    if (alert?.ismActive() == true) {
+                        launchAlert(alert)
+                    }
+
+                } else {
+                    Log.d("RESPONSE", "onResponse: response not successful ")
+                    Toast.makeText(applicationContext, response.errorBody().toString(), Toast.LENGTH_LONG).show()
+                }
+            }
+
+            override fun onFailure(call: Call<AlertObject?>, t: Throwable) {
+                // API response is failure
+                Log.d("RESPONSE", "onFailure: response failed")
+                Toast.makeText(applicationContext, "Ha habido un error llamando a la API", Toast.LENGTH_SHORT).show()
+            }
+
+        })
+    }
+
+
+
+
+    /**
+     * method launchAlert
+     * @param alert
+     * Method that print alert
+     */
+    private fun launchAlert(alert: Alert) {
+        val builder = AlertDialog.Builder(ContextThemeWrapper(this@FileDisplayActivity, R.style.Theme_ownCloud_Toolbar))
+        // Custom title
+        val titleView = TextView(applicationContext)
+        titleView.text = alert?.getmTitle()
+        titleView.setPadding(20, 30, 20, 30)
+        titleView.textSize = 20f
+        // Title backgrounds and color can be empty, if so, use default colors
+        if (!alert.getmTitleBackground().isEmpty()) {
+            titleView.setBackgroundColor(Color.parseColor(alert.getmTitleBackground()))
+        }
+        if (!alert.getmTitleColor().isEmpty()) {
+            titleView.setTextColor(Color.parseColor(alert.getmTitleColor()))
+        }
+
+        val view = LayoutInflater.from(this).inflate(R.layout.alert_dialog_educamadrid, null)
+
+        builder.setView(view)
+        builder.setCancelable(false)
+        builder.setCustomTitle(titleView)
+        builder.setMessage(alert.getmMessage())
+
+        if (alert.ismButton()) { // Check if app should be usable (alert w/o button disables app)
+            builder.setPositiveButton(alert.getmButtonText()) { dialog, which -> dialog.dismiss() }
+        }
+
+        val dialog: Dialog = builder.create()
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.show()
     }
 
     /**

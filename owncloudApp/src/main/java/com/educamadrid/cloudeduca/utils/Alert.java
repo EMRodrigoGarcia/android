@@ -1,145 +1,110 @@
 // EducaMadrid: Clase para leer archivo JSON de alertas
-//package com.owncloud.android.utils;
-//
-//        import com.google.gson.annotations.SerializedName;
-//        import org.threeten.bp.LocalDateTime;
-//        import org.threeten.bp.format.DateTimeFormatter;
-//
-//        import java.util.List;
-//
-///**
-// * class Alert
-// * Object that is built by reading the JSON
-// */
-//public class Alert {
-//    @SerializedName(value="active") private boolean mActive;
-//    @SerializedName(value="from") private String mFrom;
-//    @SerializedName(value="to") private String mTo;
-//    @SerializedName(value="apps") private List<String> mApps;
-//    @SerializedName(value="closable") private Boolean mClosable;
-//    @SerializedName(value="type") private String mType;
-//    @SerializedName(value="title") private String mTitle;
-//    @SerializedName(value="content") private String mContent;
-//
-//
-//    /**
-//     * method ismActive
-//     * @return active
-//     * Method that check if alert is active
-//     */
-//    public boolean ismActive() {
-//        boolean active = false;
-//        try {
-//            active = mActive;
-//        } catch(NullPointerException e) {
-//            active = false;
-//        }
-//        return active;
-//    }
-//
-//
-//    /**
-//     * method ismClosable
-//     * @return closable
-//     * Method that check if alert have a button
-//     */
-//    public boolean ismClosable() {
-//        boolean closable = true;
-//        try {
-//            closable = mClosable;
-//        } catch(NullPointerException e) {
-//            closable = true;
-//        }
-//        return closable;
-//    }
-//
-//
-//    /**
-//     * method getmApps
-//     * @return app
-//     * Method returns the list of apps in which the alert will appear
-//     */
-//    public List<String> getmApps() {
-//        return mApps;
-//    }
-//
-//
-//    /**
-//     * method getmContent
-//     * @return mContent
-//     * Method returns the content alert
-//     */
-//    public String getmContent() {
-//        return mContent;
-//    }
-//
-//
-//    /**
-//     * method getmFrom
-//     * @return from
-//     * Method that converts a text string to LocalDateTime and returns it
-//     */
-//    public LocalDateTime getmFrom() {
-//        String fromString = "";
-//        LocalDateTime from = null;
-//        try {
-//            fromString = mFrom;
-//            if(!fromString.equals("")) {
-//                from = LocalDateTime.parse(String.format(fromString, DateTimeFormatter.ofPattern("yyyyMMddHHmm")));
-//            }
-//        } catch(NullPointerException e) {
-//            fromString = "";
-//        }
-//
-//        return from;
-//    }
-//
-//
-//    /**
-//     * method getmTo
-//     * @return to
-//     * Method that converts a text string to LocalDateTime and returns it
-//     */
-//    public LocalDateTime getmTo() {
-//        String toString = "";
-//        LocalDateTime to = null;
-//        try {
-//            toString = mTo;
-//            if(!toString.equals("")) {
-//                to = LocalDateTime.parse(String.format(toString, DateTimeFormatter.ofPattern("yyyyMMddHHmm")));
-//            }
-//        } catch(NullPointerException e) {
-//            toString = "";
-//        }
-//
-//        return to;
-//    }
-//
-//
-//    /**
-//     * method getmTitle
-//     * @return title
-//     * Method that returns the title of the alert
-//     */
-//    public String getmTitle() {
-//        return (mTitle.equals("")) ? "Aviso importante" : mTitle;
-//    }
-//
-//
-//    /**
-//     * method getmType
-//     * @return type
-//     * Method returns the type alert
-//     */
-//    public String getmType() {
-//        String type = "default";
-//        try {
-//            type = (mType.equals("") ? "default" : mType);
-//        } catch(NullPointerException e) {
-//            type = "default";
-//        }
-//        return type;
-//    }
-//
-//}
-//
+package com.educamadrid.cloudeduca.utils;
+
+import android.util.Log;
+
+import com.google.gson.annotations.SerializedName;
+
+import org.threeten.bp.DateTimeException;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.LocalDateTime;
+import org.threeten.bp.format.DateTimeFormatter;
+
+
+import java.util.List;
+
+/**
+ * class Alert
+ * POJO built from reading the "cloud" object on the Avisos request
+ * TODO: comprobar mFrom y mTo, fechas estáticas
+ */
+public class Alert {
+
+    @SerializedName(value="active") private int mActive;
+
+    @SerializedName(value="from") private String mFrom;
+    @SerializedName(value="to") private String mTo;
+
+    @SerializedName(value="title") private String mTitle;
+    @SerializedName(value="message") private String mMessage;
+
+    @SerializedName(value="titleBackground") private String mTitleBackground;
+    @SerializedName(value="titleColor") private String mTitleColor;
+
+    @SerializedName(value="button") private int mButton;
+    @SerializedName(value="buttonText") private String mButtonText;
+
+
+    public boolean ismActive() {
+        return mActive == 1;
+    }
+
+    public void setmActive(int mActive) {
+        this.mActive = mActive;
+    }
+
+    public String getmFrom() {
+        return mFrom;
+    }
+
+    public void setmFrom(String mFrom) {
+        this.mFrom = mFrom;
+    }
+
+    public String getmTo() {
+        return mTo;
+    }
+
+    public void setmTo(String mTo) {
+        this.mTo = mTo;
+    }
+
+    public String getmTitle() {
+        return mTitle;
+    }
+
+    public void setmTitle(String mTitle) {
+        this.mTitle = mTitle;
+    }
+
+    public String getmMessage() {
+        return mMessage;
+    }
+
+    public void setmMessage(String mMessage) {
+        this.mMessage = mMessage;
+    }
+
+    public String getmTitleBackground() {
+        return mTitleBackground;
+    }
+
+    public void setmTitleBackground(String mTitleBackground) {
+        this.mTitleBackground = mTitleBackground;
+    }
+
+    public String getmTitleColor() {
+        return mTitleColor;
+    }
+
+    public void setmTitleColor(String mTitleColor) {
+        this.mTitleColor = mTitleColor;
+    }
+
+    public boolean ismButton() {
+        return mButton == 1;
+    }
+
+    public void setmButton(int mButton) {
+        this.mButton = mButton;
+    }
+
+    public String getmButtonText() {
+        return mButtonText;
+    }
+
+    public void setmButtonText(String mButtonText) {
+        this.mButtonText = mButtonText;
+    }
+}
+
