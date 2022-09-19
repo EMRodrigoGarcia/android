@@ -105,10 +105,13 @@ import com.educamadrid.cloudeduca.utils.Alert
 import com.educamadrid.cloudeduca.utils.AlertObject
 import com.educamadrid.cloudeduca.utils.Extras
 import com.educamadrid.cloudeduca.utils.PreferenceUtils
+import com.google.type.DateTime
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import org.threeten.bp.LocalDateTime
+import org.threeten.bp.format.DateTimeFormatter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -116,8 +119,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import timber.log.Timber
 import java.io.File
+import java.time.LocalDate
 import java.util.ArrayList
 import kotlin.coroutines.CoroutineContext
+import kotlin.math.log
 
 /**
  * Displays, what files the user has available in his ownCloud. This is the main view.
@@ -161,8 +166,8 @@ class FileDisplayActivity : FileActivity(), FileFragment.ContainerActivity, OnEn
 
     private lateinit var binding: ActivityMainBinding
 
-//    protected val URL_ALERT = "https://jsonkeeper.com/" // Pruebas
-    protected val URL_ALERT = "https://api.npoint.io/" // Pruebas
+//    protected val URL_ALERT = "https://api.npoint.io/" // Pruebas
+    protected val URL_ALERT = "https://avisos.educa.madrid.org/" // Pruebas
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Timber.v("onCreate() start")
@@ -262,7 +267,21 @@ class FileDisplayActivity : FileActivity(), FileFragment.ContainerActivity, OnEn
             .build()
         val alertService = retrofit.create(AlertService::class.java)
 
-        val callAsync = alertService.alert
+        // Concatenating instead of using just 1 formatter due to JDK8 bugs (doesn't read patterns without separator)
+        var paramString = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy"))
+            .plus(LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM")))
+            .plus(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd")))
+            .plus(LocalDateTime.now().format(DateTimeFormatter.ofPattern("kk")))
+
+        if (LocalDateTime.now().minute < 30) {
+            paramString += "1"
+        } else {
+            paramString += "2"
+        }
+
+        var params: HashMap<String, String> = HashMap()
+        params.put("v", paramString)
+        val callAsync = alertService.getAlert(params)
 
         callAsync.enqueue(object : Callback<AlertObject?> {
             override fun onResponse(call: Call<AlertObject?>, response: Response<AlertObject?>) {
@@ -308,10 +327,12 @@ class FileDisplayActivity : FileActivity(), FileFragment.ContainerActivity, OnEn
         titleView.textSize = 20f
         // Title backgrounds and color can be empty, if so, use default colors
         if (!alert.getmTitleBackground().isEmpty()) {
-            titleView.setBackgroundColor(Color.parseColor(alert.getmTitleBackground()))
+            // Avisos API does not include # in titleBackground and titleColor
+            titleView.setBackgroundColor(Color.parseColor("#" + alert.getmTitleBackground()))
         }
+
         if (!alert.getmTitleColor().isEmpty()) {
-            titleView.setTextColor(Color.parseColor(alert.getmTitleColor()))
+            titleView.setTextColor(Color.parseColor("#" + alert.getmTitleColor()))
         }
 
         val view = LayoutInflater.from(this).inflate(R.layout.alert_dialog_educamadrid, null)
